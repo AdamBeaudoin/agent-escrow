@@ -65,6 +65,14 @@ make demo-step3   # Worker submits work
 # Then call the judge service API, which evaluates via LLM and auto-settles on-chain
 ```
 
+## Tests
+
+13 Foundry tests covering all contract paths — happy path, rejection, cancellation, judge timeout, unauthorized access, and state validation:
+
+```bash
+cd code && forge test
+```
+
 ## Contract States
 
 `Created` → `Accepted` → `Submitted` → `ResolvedPaid` | `ResolvedRefunded` | `TimedOut` | `Cancelled`
