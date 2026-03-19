@@ -7,7 +7,7 @@ Three-party escrow for AI agent tasks on **Tempo Mainnet**. A requester posts a 
 ## How It Works
 
 ```
-Requester                    Worker                      Judge (Claude AI)
+Requester                    Worker                      Judge (LLM)
     │                           │                              │
     ├─ createTask(bounty) ──►   │                              │
     │   (USDC locked in escrow) │                              │
@@ -26,7 +26,7 @@ If the judge is inactive, the requester can reclaim the bounty after a configura
 | Directory | Description |
 |-----------|-------------|
 | `code/` | Solidity smart contract (Foundry), deploy scripts, tests |
-| `mpp-services/judge-service/` | Node.js judge API — Claude AI evaluation + on-chain auto-settlement |
+| `mpp-services/judge-service/` | Node.js judge API — LLM evaluation + on-chain auto-settlement |
 | `docs/` | Task schema, judging rubric, guides |
 
 ## Quick Start
@@ -50,7 +50,7 @@ make deploy-mainnet
 
 ```bash
 cd mpp-services/judge-service
-cp .env.example .env    # fill in ANTHROPIC_API_KEY, JUDGE_PRIVATE_KEY, ESCROW_ADDRESS
+cp .env.example .env    # fill in LLM API key, JUDGE_PRIVATE_KEY, ESCROW_ADDRESS
 npm install
 npm start
 ```
@@ -62,7 +62,7 @@ cd code
 make demo-step1   # Requester creates task with bounty
 make demo-step2   # Worker accepts
 make demo-step3   # Worker submits work
-# Then call the judge service API, which evaluates via Claude and auto-settles on-chain
+# Then call the judge service API, which evaluates via LLM and auto-settles on-chain
 ```
 
 ## Contract States
@@ -72,7 +72,7 @@ make demo-step3   # Worker submits work
 ## Tech Stack
 
 - **Smart Contract:** Solidity 0.8.24, Foundry, TIP-20 (USDC.e on Tempo)
-- **Judge Service:** Node.js, Express, Anthropic Claude API
+- **Judge Service:** Node.js, Express, LLM API (currently Anthropic Claude, swappable)
 - **Chain:** Tempo Mainnet (chain ID 4217) — gas paid in stablecoins via `--tempo.fee-token`
 
 ## Environment Setup
