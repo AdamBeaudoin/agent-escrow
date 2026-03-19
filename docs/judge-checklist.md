@@ -33,4 +33,4 @@ If you **cannot** evaluate before the on-chain review window ends, the **request
 
 ## LLM judge (optional)
 
-Point the judge service at this file or paste the criteria into the system prompt; require JSON output `{ "approve": bool, "reason": string }` and map `reason` → `RESOLUTION_MEMO` for on-chain `resolveTask`.
+Point the judge service at this file or paste the criteria into the `rubric` field of the `/judge/evaluate` request. The LLM returns JSON `{ "approve": bool, "resolutionMemo": string, "reasoning": string }`. The `resolutionMemo` is passed to on-chain `resolveTask`.

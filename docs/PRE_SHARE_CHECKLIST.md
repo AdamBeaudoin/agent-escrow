@@ -23,7 +23,7 @@ git rm -r --cached path/to/leaked-file
 ## 3) Teammate can reproduce
 
 - **Contracts:** `cd code && forge install` (if needed) && `forge build && forge test`
-- **MPP:** `cd mpp-services/worker-service && npm ci` (same for `judge-service`)
+- **MPP:** `cd mpp-services/judge-service && npm ci`
 
 ## 4) Optional: strip local build artifacts
 

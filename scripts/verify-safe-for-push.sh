@@ -27,7 +27,7 @@ else
   echo "OK: No tracked .env files."
 fi
 
-for rel in code/.env mpp-services/worker-service/.env mpp-services/judge-service/.env; do
+for rel in code/.env mpp-services/judge-service/.env; do
   f="$AGENT_ESCROW/$rel"
   if [[ -f "$f" ]]; then
     if git -C "$REPO_ROOT" check-ignore -q "$f" 2>/dev/null; then

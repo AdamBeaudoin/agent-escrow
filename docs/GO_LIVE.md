@@ -3,7 +3,7 @@
 You need **three public artifacts** for a crisp demo:
 
 1. **Smart contract** on Tempo mainnet (verified explorer link)
-2. **Worker + Judge HTTP APIs** on the public internet (HTTPS)
+2. **Judge HTTP API** on the public internet (HTTPS)
 3. **Repo** (GitHub/GitLab) so people can read the code
 
 ---
@@ -42,17 +42,18 @@ Put those in your demo slide / **`docs/PUBLIC_DEMO.md`** (template below).
 
 ## 3) Deploy MPP services (HTTPS)
 
-Both services need the **same** `MPP_SECRET_KEY` and a real **`MPP_RECIPIENT`** (your payout wallet).
+The judge service needs `MPP_SECRET_KEY` and a real **`MPP_RECIPIENT`** (your payout wallet).
 
 ### Option A — Render (Blueprint)
 
 1. Repo root must include **`render.yaml`** (already at workspace root: `Tempo Hackathon/render.yaml`).
 2. Render → **New** → **Blueprint** → connect repo.
-3. After deploy, open each service → **Environment** → set:
-   - `MPP_SECRET_KEY` (same value on **worker** and **judge**)
+3. After deploy, open the judge service → **Environment** → set:
+   - `MPP_SECRET_KEY`
    - `MPP_RECIPIENT`
-   - Optional judge: `ANTHROPIC_API_KEY`
-4. Note the public URLs, e.g. `https://agent-escrow-worker.onrender.com`
+   - `ANTHROPIC_API_KEY` (optional — heuristic fallback works without it)
+   - `JUDGE_PRIVATE_KEY` + `ESCROW_ADDRESS` (for auto-settlement)
+4. Note the public URL, e.g. `https://agent-escrow-judge.onrender.com`
 
 **Health checks:** `GET /health` on each service.
 
@@ -61,8 +62,8 @@ Both services need the **same** `MPP_SECRET_KEY` and a real **`MPP_RECIPIENT`** 
 Each folder has a **`Dockerfile`**. Example (Fly):
 
 ```bash
-cd agent-escrow/mpp-services/worker-service
-fly launch --name your-worker --internal-port 4101  # set secrets in dashboard
+cd agent-escrow/mpp-services/judge-service
+fly launch --name your-judge --internal-port 4102  # set secrets in dashboard
 ```
 
 Or from **`mpp-services/`**:
@@ -82,7 +83,6 @@ Platform sets **`PORT`** — our apps already read it. Set **`HOST=0.0.0.0`** (d
 ## 4) Point scripts / README at public URLs
 
 ```bash
-export WORKER_URL="https://your-worker.example.com"
 export JUDGE_URL="https://your-judge.example.com"
 ./agent-escrow/mpp-services/scripts/paid-requests-mainnet.sh
 ```
@@ -99,8 +99,6 @@ Copy **`PUBLIC_DEMO.md`**, fill in URLs and addresses, and paste into Notion / h
 
 - [ ] GitHub (or similar) link works
 - [ ] `ESCROW_ADDRESS` + explorer link
-- [ ] Worker `GET /health` 200 on HTTPS
 - [ ] Judge `GET /health` 200 on HTTPS
-- [ ] Same `MPP_SECRET_KEY` on both services
-- [ ] `tempo request --network tempo https://.../work/submit` succeeds from a funded wallet
+- [ ] `MPP_SECRET_KEY` set on judge service
 - [ ] Contract demo steps 1–4 (or 5) rehearsed once on mainnet

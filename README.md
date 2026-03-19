@@ -27,7 +27,7 @@ If the judge is inactive, the requester can reclaim the bounty after a configura
 |-----------|-------------|
 | `code/` | Solidity smart contract (Foundry), deploy scripts, tests |
 | `mpp-services/judge-service/` | Node.js judge API — Claude AI evaluation + on-chain auto-settlement |
-| `docs/` | Task schema, judging rubric, deployment guides |
+| `docs/` | Task schema, judging rubric, guides |
 
 ## Quick Start
 

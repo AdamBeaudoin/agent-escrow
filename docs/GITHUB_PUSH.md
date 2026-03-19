@@ -64,8 +64,8 @@ Smoke test:
 
 ```bash
 # From repo root; adjust path if your root is agent-escrow:
-git check-ignore -v agent-escrow/mpp-services/worker-service/.env 2>/dev/null || \
-  git check-ignore -v mpp-services/worker-service/.env
+git check-ignore -v agent-escrow/mpp-services/judge-service/.env 2>/dev/null || \
+  git check-ignore -v mpp-services/judge-service/.env
 ```
 
 You should see a line showing the file is **ignored**.

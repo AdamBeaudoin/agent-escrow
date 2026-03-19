@@ -34,7 +34,7 @@ const ANTHROPIC_MAX_TOKENS = Number(process.env.ANTHROPIC_MAX_TOKENS || 250);
 const JUDGE_PRIVATE_KEY = process.env.JUDGE_PRIVATE_KEY || "";
 const ESCROW_ADDRESS = process.env.ESCROW_ADDRESS || "";
 const TEMPO_RPC_URL = process.env.TEMPO_RPC_URL || "https://rpc.tempo.xyz";
-const CAST_BIN = process.env.CAST_BIN || "/Users/adam/.foundry/bin/cast";
+const CAST_BIN = process.env.CAST_BIN || "cast";
 const AUTO_SETTLE = !!(JUDGE_PRIVATE_KEY && ESCROW_ADDRESS);
 
 if (!MPP_RECIPIENT) {

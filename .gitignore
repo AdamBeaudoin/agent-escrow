@@ -2,9 +2,6 @@
 code/.env
 code/.env.*
 !code/.env.example
-mpp-services/worker-service/.env
-mpp-services/worker-service/.env.*
-!mpp-services/worker-service/.env.example
 mpp-services/judge-service/.env
 mpp-services/judge-service/.env.*
 !mpp-services/judge-service/.env.example

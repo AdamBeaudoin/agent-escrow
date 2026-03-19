@@ -53,8 +53,7 @@ anvil --version
 - Resolve refund: `TASK_ID=2 APPROVE=false RESOLUTION_MEMO="rejected" make demo-step4`
 - Judge timeout reclaim: `TASK_ID=1 make demo-step5` (only after review window; set `JUDGE_REVIEW_PERIOD_SECONDS` in `.env` at task creation)
 
-## MPP integration (separate services)
-- Worker MPP service: `../mpp-services/worker-service`
+## MPP integration
 - Judge MPP service: `../mpp-services/judge-service`
 - Setup/run guide: `../mpp-services/README.md`
 
