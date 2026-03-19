@@ -1,0 +1,26 @@
+# Local / VPS: copy .env.example → .env in each service, set MPP_* and secrets, then:
+#   docker compose up --build
+#
+# Cloud hosts usually set PORT automatically — override if needed:
+#   docker compose run -e PORT=8080 ...
+
+services:
+  worker:
+    build: ./worker-service
+    ports:
+      - "4101:4101"
+    environment:
+      PORT: "4101"
+      HOST: "0.0.0.0"
+    env_file:
+      - ./worker-service/.env
+
+  judge:
+    build: ./judge-service
+    ports:
+      - "4102:4102"
+    environment:
+      PORT: "4102"
+      HOST: "0.0.0.0"
+    env_file:
+      - ./judge-service/.env

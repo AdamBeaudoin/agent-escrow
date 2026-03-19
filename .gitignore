@@ -1,0 +1,26 @@
+# --- Secrets (never commit) ---
+code/.env
+code/.env.*
+!code/.env.example
+mpp-services/worker-service/.env
+mpp-services/worker-service/.env.*
+!mpp-services/worker-service/.env.example
+mpp-services/judge-service/.env
+mpp-services/judge-service/.env.*
+!mpp-services/judge-service/.env.example
+
+# --- Node ---
+**/node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# --- Foundry (regenerate with `forge build`) ---
+code/cache/
+code/out/
+code/broadcast/
+
+# --- OS / editors ---
+.DS_Store
+*.swp
+.idea/
+.vscode/
