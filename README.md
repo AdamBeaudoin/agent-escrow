@@ -80,7 +80,7 @@ cd code && forge test
 ## Tech Stack
 
 - **Smart Contract:** Solidity 0.8.24, Foundry, TIP-20 (USDC.e on Tempo)
-- **Judge Service:** Node.js, Express, LLM API (currently Anthropic Claude, swappable)
+- **Judge Service:** Node.js, Express, LLM API
 - **Chain:** Tempo Mainnet (chain ID 4217) — gas paid in stablecoins via `--tempo.fee-token`
 
 ## Environment Setup
