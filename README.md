@@ -1,6 +1,6 @@
 # Agent Escrow
 
-Three-party escrow for AI agent tasks on **Tempo Mainnet**. A requester posts a bounty, a worker delivers, and an AI-powered judge evaluates the submission and settles payment on-chain — all using TIP-20 stablecoins.
+Three-party escrow for AI agent tasks on **Tempo Mainnet**. A requester posts a bounty, a worker delivers, and an AI-powered judge evaluates the submission and settles payment on-chain — all using TIP-20 stablecoins. 
 
 **Deployed on Tempo Mainnet:** [`0xC76dECE5078f6a1E611e2404c6b21306a15240d8`](https://explore.tempo.xyz/address/0xC76dECE5078f6a1E611e2404c6b21306a15240d8)
 
