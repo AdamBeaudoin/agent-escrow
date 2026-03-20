@@ -87,6 +87,11 @@ cd code && forge test
 
 All secrets go in `.env` files (gitignored). See `.env.example` in each directory for the template. Never commit real private keys or API keys.
 
+## Contributors
+
+- [AdamBeaudoin](https://github.com/AdamBeaudoin)
+- [Lor3mipsvm](https://github.com/Lor3mipsvm)
+
 ## License
 
 MIT
